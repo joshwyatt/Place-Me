@@ -6,8 +6,19 @@ module.exports = {
     connection: "postgres://localhost/place_me_dev"
   },
   test: {
-    client: "pg",
-    connection: "postgres://localhost/place_me_test"
+    client: "postgresql",
+    connection: {
+      database: "place_me_test",
+      user: "postgres",
+      host: "postgres"
+    }
   },
-  production: {}
+  production: {
+    client: "postgresql",
+    connection: {
+      database: "place_me_test",
+      user: "postgres",
+      host: "postgres"
+    }
+  }
 };

@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "description": "The API takes a location and returns pictures and their data that were taken near the input location. It will also allow the user to store their favorite pictures, and add comments and ratings.",
   "apidoc": {
-    "title": "ShareCast",
-    "url": "https://sharecast.com"
+    "title": "Place-Me"
   },
   "main": "index.js",
   "scripts": {
     "setupTestEnv": "knex migrate:rollback --env test && knex migrate:latest --env test && knex seed:run --env test",
+    "setupProdEnv": "knex migrate:rollback --env production && knex migrate:latest --env production && knex seed:run --env production",
     "dev": "nodemon index.js",
     "coverage": "NODE_ENV=test npm run setupTestEnv && istanbul cover _mocha -- -R spec",
-    "test": "npm run setupTestEnv && mocha"
+    "test": "npm run setupTestEnv && mocha",
+    "start": "npm run setupProdEnv && npm run dev"
   },
   "repository": {
     "type": "git",
